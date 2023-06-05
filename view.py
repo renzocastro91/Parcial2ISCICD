@@ -5,11 +5,13 @@ class VistaCarrito:
     def mostrar_producto_agregado(self, producto):
         mensaje = f"Producto agregado: {producto.nombre} (${producto.precio})\n"
         print(mensaje)
+        
 
 
     def mostrar_producto_eliminado(self, producto):
-        mensaje = f"Producto eliminado: {producto.nombre} (${producto.precio})\n"
+        mensaje = f"Producto eliminado: {producto.nombre} (${producto.precio})"
         print(mensaje)
+
 
 
 
@@ -18,3 +20,4 @@ class VistaCarrito:
         for producto in productos:
             mensaje = f"- {producto.nombre} (${producto.precio})"
             print(mensaje)
+

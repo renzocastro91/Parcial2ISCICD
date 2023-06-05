@@ -19,6 +19,7 @@ class ControladorCarrito:
             return True
         else:
             return False
+
     
     def mostrar_productos(self):
         productos = self.carrito.obtener_productos()
