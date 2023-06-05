@@ -12,9 +12,6 @@ class VistaCarrito:
         mensaje = f"Producto eliminado: {producto.nombre} (${producto.precio})"
         print(mensaje)
 
-
-
-
     def mostrar_productos(self, productos):
         print("Lista de productos:")
         for producto in productos:

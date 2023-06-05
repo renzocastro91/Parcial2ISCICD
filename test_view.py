@@ -11,6 +11,7 @@ def test_mostrar_producto_agregado(capsys):
     assert captured.out.strip() == "Producto agregado: Producto 1 ($10)"
 
 
+
 def test_mostrar_producto_eliminado(capsys):
     vista = VistaCarrito()
     producto = Producto("Producto 1", 10)
