@@ -16,7 +16,8 @@ def test_mostrar_producto_eliminado(capsys):
     producto = Producto("Producto 1", 10)
     vista.mostrar_producto_eliminado(producto)
     captured = capsys.readouterr()
-    assert captured.out == "Producto eliminado: Producto 1 ($10)\n\n"
+    assert captured.out == "Producto eliminado: Producto 1 ($10)"
+
 
 
 def test_mostrar_productos(capsys):
