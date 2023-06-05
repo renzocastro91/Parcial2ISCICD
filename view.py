@@ -8,13 +8,13 @@ class VistaCarrito:
 
 
     def mostrar_producto_eliminado(self, producto):
-        print(f"Producto eliminado: {producto.nombre} - {producto.precio}")
+        mensaje = f"Producto eliminado: {producto.nombre} (${producto.precio})\n"
+        print(mensaje)
+
+
 
     def mostrar_productos(self, productos):
-        print("-------------------------------------------------------------------")
-        if productos:
-            print("Productos en el carrito:")
-            for producto in productos:
-                print(f"- {producto.nombre} - {producto.precio}")
-        else:
-            print("No hay productos en el carrito.")
+        print("Lista de productos:")
+        for producto in productos:
+            mensaje = f"- {producto.nombre} (${producto.precio})"
+            print(mensaje)
