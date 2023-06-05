@@ -7,7 +7,8 @@ def test_agregar_producto(capsys):
     controlador = ControladorCarrito()
     controlador.agregar_producto("Producto 1", 10)
     captured = capsys.readouterr()
-    assert captured.out == "Producto agregado: Producto 1 ($10)\n"
+    assert captured.out == "Producto agregado: Producto 1 ($10)\n\n"
+
 
 def test_eliminar_producto(capsys):
     controlador = ControladorCarrito()
