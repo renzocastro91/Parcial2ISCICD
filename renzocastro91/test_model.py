@@ -1,5 +1,3 @@
-# test_modelo.py
-
 from renzocastro91.model import Carrito, Producto
 
 def test_agregar_producto():
