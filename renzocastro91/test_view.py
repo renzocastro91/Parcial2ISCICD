@@ -1,3 +1,12 @@
+import os
+import sys
+
+# Obtener la ruta del directorio actual
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Agregar la ruta al PYTHONPATH
+sys.path.append(current_dir)
+
 from view import VistaCarrito
 from model import Producto
 
