@@ -28,6 +28,10 @@ jobs:
       
       - name: Run tests
         run: pytest
+
+      - name: Build
+        run: |
+          python main.py
       
       - name: Install Vercel CLI
         run: npm install -g vercel
