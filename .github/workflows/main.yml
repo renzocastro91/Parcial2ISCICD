@@ -33,5 +33,5 @@ jobs:
         run: npm install -g vercel
       - name: Deploy to Vercel
         run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --yes
-        working-directory: ~/work/Parcial2ISCICD/Parcial2ISCICD/renzocastro91
+        working-directory: ~/work/Parcial2ISCICD/Parcial2ISCICD
         
