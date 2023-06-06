@@ -1,4 +1,4 @@
-from .model import Carrito, Producto
+from model import Carrito, Producto
 
 def test_agregar_producto():
     carrito = Carrito()
