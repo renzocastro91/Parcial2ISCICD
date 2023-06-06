@@ -38,4 +38,6 @@ jobs:
           npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
           cd renzocastro91
           python3 main.py
+          echo "3"
+          echo "0"
         
