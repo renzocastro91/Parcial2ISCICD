@@ -37,4 +37,4 @@ jobs:
           npm install -g vercel
           npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
           cd renzocastro91
-          echo "3" | python3 main.py | echo "0"S
+          echo "3" | python3 main.py | echo "0"
