@@ -1,4 +1,4 @@
-from  .controller import ControladorCarrito
+from  renzocastro91.controller import ControladorCarrito
 
 def mostrar_menu():
     print("1. Agregar producto")
