@@ -24,7 +24,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r renzocastro91/requirements.txt
-          pip install pytest   # Agregar esta línea para instalar pytest
+          pip install pytest   
       
       - name: Run tests
         run: pytest
@@ -37,7 +37,5 @@ jobs:
           npm install -g vercel
           npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
           cd renzocastro91
-          python3 main.py
-          echo "3"
-          echo "0"
-        
+          echo "3" | python3 main.py
+          echo "0" | python3 main.py
