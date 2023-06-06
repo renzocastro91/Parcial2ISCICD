@@ -28,11 +28,6 @@ jobs:
       
       - name: Run tests
         run: pytest
-
-      - name: Build
-        run: |
-          cd renzocastro91
-          python3 main.py  
       
       - name: Install Vercel CLI
         run: npm install -g vercel
@@ -41,4 +36,6 @@ jobs:
         run: |
           npm install -g vercel
           npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
+          cd renzocastro91
+          python3 main.py
         
