@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.x
+          python-version: 3.8
       
       - name: Install dependencies
         run: |
@@ -28,18 +28,11 @@ jobs:
       
       - name: Run tests
         run: pytest
-
-      - name: Build
-        run: |
-          cd renzocastro91
-          python main.py  
-
-      
-      - name: Install Vercel CLI
-        run: npm install -g vercel
-
-      - name: Deploy to Vercel
-        run: |
-          npm install -g vercel
-          npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
-        
+   
+      - name: Deploy to PythonAnywhere
+        uses: jensvog/pythonanywhere-webapp-reload-action@v1
+        with:
+          host: <www.pythonanywhere.com>
+          username: <${{ secrets.PYTHONANYWHERE_USERNAME }}>
+          api-token: <${{ secrets.PYTHONANYWHERE_API_TOKEN }}>
+          domain-name: <renzocastro91.pythonanywhere.com>
