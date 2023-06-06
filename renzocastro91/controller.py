@@ -1,6 +1,7 @@
 # controlador.py
-from model import Producto, Carrito
-from view import VistaCarrito
+from renzocastro91.model import Producto, Carrito
+from renzocastro91.view import VistaCarrito
+
 
 class ControladorCarrito:
     def __init__(self):

@@ -1,6 +1,6 @@
 # test_modelo.py
 
-from model import Carrito, Producto
+from renzocastro91.model import Carrito, Producto
 
 def test_agregar_producto():
     carrito = Carrito()

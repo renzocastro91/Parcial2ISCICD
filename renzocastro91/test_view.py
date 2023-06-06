@@ -1,7 +1,6 @@
-# test_vista.py
 
-from view import VistaCarrito
-from model import Producto
+from renzocastro91.view import VistaCarrito
+from renzocastro91.model import Producto
 
 def test_mostrar_producto_agregado(capsys):
     vista = VistaCarrito()

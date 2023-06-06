@@ -31,9 +31,7 @@ jobs:
       
       - name: Install Vercel CLI
         run: npm install -g vercel
-
-      - name: Deploy
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --yes --confirm renzocastro91
+      - name: Deploy to Vercel
+        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --yes
+        working-directory: ~/work/Parcial2ISCICD/Parcial2ISCICD
         
