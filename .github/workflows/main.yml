@@ -34,6 +34,6 @@ jobs:
       - name: Deploy to Vercel
         run: |
           npm install -g vercel
-          cd parcial2iscicd/renzocastro91
+          cd Parcial2ISCICD/renzocastro91
           npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
         
