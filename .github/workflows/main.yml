@@ -31,10 +31,13 @@ jobs:
 
       - name: Build
         run: |
-          python main.py
+          cd renzocastro91
+          python main.py  
+
       
       - name: Install Vercel CLI
         run: npm install -g vercel
+
       - name: Deploy to Vercel
         run: |
           npm install -g vercel
