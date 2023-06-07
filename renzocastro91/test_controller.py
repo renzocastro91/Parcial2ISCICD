@@ -19,7 +19,7 @@ class TestControladorCarrito(unittest.TestCase):
         self.controlador = ControladorCarrito()
 
     def test_mostrar_productos(self):
-        expected_output = "Lista de productos:"
+        expected_output = "Lista de productos:/n"
 
         with patch('sys.stdout', new=StringIO()) as fake_stdout:
             self.controlador.mostrar_productos()
