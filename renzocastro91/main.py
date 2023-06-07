@@ -84,6 +84,11 @@ def main():
     nombre="Gorra"
     precio=1500
     controlador.agregar_producto(nombre,precio)
+
+    nombre="Guantes"
+    precio=1200
+    controlador.agregar_producto(nombre,precio)
+
     guardar_datos(controlador)
 
     while True:
