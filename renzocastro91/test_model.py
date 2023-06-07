@@ -15,7 +15,7 @@ def test_agregar_producto():
     producto2 = Producto("Producto 2", 40)
     carrito.agregar_producto(producto1)
     carrito.agregar_producto(producto2)
-    assert len(carrito.obtener_productos()) == 1
+    assert len(carrito.obtener_productos()) == 2
 
 def test_eliminar_producto():
     carrito = Carrito()
