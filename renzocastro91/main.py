@@ -1,6 +1,6 @@
 import os
 import sys
-
+import csv
 # Obtener la ruta del directorio actual
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -31,6 +31,15 @@ def eliminar_producto(controlador):
     else:
         print("El producto no existe en el carrito.")
 
+def guardar_datos(controlador):
+    data = controlador.obtener_lista_productos()
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, 'data.csv')
+
+    with open(file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        for product in data:
+            writer.writerow([product.nombre, product.precio])
 
 def main():
     controlador = ControladorCarrito()
@@ -72,6 +81,10 @@ def main():
     print("-------------------------------------------------------------------")
     print("Probando el bucle")
     print("-------------------------------------------------------------------")
+    nombre="Gorra"
+    precio=1500
+    controlador.agregar_producto(nombre,precio)
+    guardar_datos(controlador)
 
     while True:
         mostrar_menu()
