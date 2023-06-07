@@ -46,8 +46,20 @@ jobs:
         run: npm install -g vercel
 
       - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          npm install -g vercel
-          npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm renzocastro91
-          cd renzocastro91
-          echo "0" | python3 main.py
+          npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
+
+      - name: Send Slack notification
+        uses: ravsamhq/notify-slack-action@v2
+        if: always()
+        with:
+          status: ${{ job.status }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          notification_title: "{workflow} has {status_message}"
+          message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+          footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
+          notify_when: "success"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK2 }}
