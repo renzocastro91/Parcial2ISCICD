@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
       "handler": {
-        "runtime": "@vercel/python",
+        "runtime": "python3.10.6",
         "memory": 128,
         "maxDuration": 10
       }
