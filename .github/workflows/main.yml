@@ -52,12 +52,6 @@ jobs:
           npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
           cd renzocastro91
           echo "0" | python3 main.py
-
-      - name: Get deployment URL
-        id: deployment
-        run: |
-          DEPLOY_URL=$(vercel inspect --json | jq -r '.[0].url')
-          echo "::set-output name=url::$DEPLOY_URL"
   
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
@@ -66,7 +60,7 @@ jobs:
           status: ${{ job.status }}
           token: ${{ secrets.GITHUB_TOKEN }}
           notification_title: "{workflow} has {status_message}"
-          message_format: "{emoji} successful deployment in <{repo_url}|{repo}>\nDeployed URL: ${{ steps.deployment.outputs.url }}"
+          message_format: "{emoji} successful deployment in <{repo_url}|{repo}>"
           footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
           notify_when: "success"
         env:
