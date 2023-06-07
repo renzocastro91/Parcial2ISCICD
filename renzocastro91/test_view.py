@@ -15,7 +15,7 @@ def test_mostrar_producto_agregado(capsys):
     producto = Producto("Producto 1", 10)
     vista.mostrar_producto_agregado(producto)
     captured = capsys.readouterr()
-    assert captured.out.strip() == "Producto agregado: Producto 1 ($10)/n"
+    assert captured.out.strip() == "Producto agregado: Producto 1 ($10)"
 
 
 
