@@ -34,17 +34,12 @@ jobs:
         if: always()
         with:
             status: ${{ job.status }}
+            token: ${{ secrets.GITHUB_TOKEN }}
             notification_title: "{workflow} has {status_message}"
             message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
             footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
             notify_when: "failure"
         env:
-          SLACK_CHANNEL: proyectocicd
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'Failure in test stage'
-          SLACK_TITLE: Message
-          SLACK_USERNAME: rtBot
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: Install Vercel CLI
