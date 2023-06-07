@@ -10,17 +10,6 @@ sys.path.append(current_dir)
 # Importar el módulo ControladorCarrito desde controller
 from controller import ControladorCarrito
 
-from flask import Flask
-
-app= Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Hello world'
-
-if __name__ == '__main_-':
-    app.run()
-
 def mostrar_menu():
     print("1. Agregar producto")
     print("2. Eliminar producto por nombre")
