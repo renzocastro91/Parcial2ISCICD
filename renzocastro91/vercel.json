@@ -1,15 +1,16 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "vercelF.py",
-        "use": "@vercel/python"
+    "functions": {
+      "handler": {
+        "runtime": "@vercel/python",
+        "memory": 128,
+        "maxDuration": 10
       }
-    ],
+    },
     "routes": [
       {
         "src": "/",
-        "dest": "vercelF.py"
+        "dest": "vercelF.handler"
       }
     ],
     "env": {
