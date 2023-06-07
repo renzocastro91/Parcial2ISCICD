@@ -52,7 +52,7 @@ jobs:
           npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
           cd renzocastro91
           echo "0" | python3 main.py
-  
+
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
         if: always()
