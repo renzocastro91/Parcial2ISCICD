@@ -29,12 +29,12 @@ def eliminar_producto(controlador):
     nombre = input("Ingrese el nombre del producto a eliminar: ")
     if controlador.eliminar_producto(nombre):
         print("Producto eliminado con éxito.")
+        guardar_datos(controlador)
     else:
         print("El producto no existe en el carrito.")
 
 def guardar_datos(controlador):
     data = controlador.obtener_lista_productos()
-    current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'data.csv')
 
     with open(file_path, 'w', newline='') as file:
