@@ -32,12 +32,48 @@ def eliminar_producto(controlador):
         print("El producto no existe en el carrito.")
 
 
-
 def main():
     controlador = ControladorCarrito()
+    print("-------------------------------------------------------------------")
+    print("Probando agregar productos")
+    print("-------------------------------------------------------------------")
+    nombre="Pantalon"
+    precio=5000
+    controlador.agregar_producto(nombre,precio)
+    print("Producto agregado con éxito.")
+    print("-------------------------------------------------------------------")
+    nombre="Remera"
+    precio=4500
+    controlador.agregar_producto(nombre,precio)
+    print("Producto agregado con éxito.")
+    print("-------------------------------------------------------------------")
+    nombre="Medias"
+    precio=3000
+    controlador.agregar_producto(nombre,precio)
+    print("Producto agregado con éxito.")
+    print("-------------------------------------------------------------------")
+    print("-------------------------------------------------------------------")
+    print("Mostrar productos")
+    print("-------------------------------------------------------------------")
+    controlador.mostrar_productos()
+    print("-------------------------------------------------------------------")
+    print("Probando Eliminar productos")
+    print("-------------------------------------------------------------------")
+    print("Eliminamos el pantalon de la lista de productos")
+    nombre="Pantalon"
+    if controlador.eliminar_producto(nombre):
+        print("Producto eliminado con éxito.")
+    else:
+        print("El producto no existe en el carrito.")
+    print("-------------------------------------------------------------------")
+    print("Mostrar productos")
+    print("-------------------------------------------------------------------")
+    controlador.mostrar_productos()
+    print("-------------------------------------------------------------------")
+    print("Probando el bucle")
+    print("-------------------------------------------------------------------")
 
     while True:
-        print("-------------------------------------------------------------------")
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
 
