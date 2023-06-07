@@ -53,6 +53,12 @@ jobs:
           cd renzocastro91
           echo "0" | python3 main.py
 
+      - name: Get deployment URL
+        id: deployment
+        run: |
+          DEPLOY_URL=$(vercel inspect --json | jq -r '.[0].url')
+          echo "::set-output name=url::$DEPLOY_URL"
+
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
         if: always()
