@@ -12,8 +12,9 @@ from model import Carrito, Producto
 def test_agregar_producto():
     carrito = Carrito()
     producto = Producto("Producto 1", 10)
+    producto = Producto("Producto 2", 40)
     carrito.agregar_producto(producto)
-    assert len(carrito.obtener_productos()) == 1
+    assert len(carrito.obtener_productos()) == 2
 
 def test_eliminar_producto():
     carrito = Carrito()
