@@ -21,6 +21,7 @@ def agregar_producto(controlador):
     nombre = input("Ingrese el nombre del producto: ")
     precio = float(input("Ingrese el precio del producto: "))
     controlador.agregar_producto(nombre, precio)
+    guardar_datos(controlador)
     print("Producto agregado con éxito.")
 
 def eliminar_producto(controlador):
@@ -88,8 +89,6 @@ def main():
     nombre="Guantes"
     precio=1200
     controlador.agregar_producto(nombre,precio)
-
-    guardar_datos(controlador)
 
     while True:
         mostrar_menu()
