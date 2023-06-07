@@ -21,7 +21,6 @@ def agregar_producto(controlador):
     nombre = input("Ingrese el nombre del producto: ")
     precio = float(input("Ingrese el precio del producto: "))
     controlador.agregar_producto(nombre, precio)
-    guardar_datos(controlador)
     print("Producto agregado con éxito.")
 
 def eliminar_producto(controlador):
@@ -29,7 +28,6 @@ def eliminar_producto(controlador):
     nombre = input("Ingrese el nombre del producto a eliminar: ")
     if controlador.eliminar_producto(nombre):
         print("Producto eliminado con éxito.")
-        guardar_datos(controlador)
     else:
         print("El producto no existe en el carrito.")
 
@@ -90,6 +88,11 @@ def main():
     precio=1200
     controlador.agregar_producto(nombre,precio)
 
+    nombre="Anteojos"
+    precio=1459
+    controlador.agregar_producto(nombre,precio)
+
+    guardar_datos(controlador)
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
