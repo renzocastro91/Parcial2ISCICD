@@ -45,7 +45,7 @@ jobs:
           SLACK_MESSAGE: 'Failure in test stage'
           SLACK_TITLE: Message
           SLACK_USERNAME: rtBot
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: Install Vercel CLI
         run: npm install -g vercel
