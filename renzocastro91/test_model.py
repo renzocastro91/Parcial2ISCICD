@@ -21,6 +21,7 @@ def test_eliminar_producto():
     carrito.agregar_producto(producto)
     carrito.eliminar_producto("Producto 1")
     assert len(carrito.obtener_productos()) == 0
+    assert carrito.eliminar_producto("Producto 1") == 0
 
 def test_obtener_total():
     carrito = Carrito()
