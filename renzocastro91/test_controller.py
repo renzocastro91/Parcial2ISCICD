@@ -2,6 +2,15 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 
+import os
+import sys
+
+# Obtener la ruta del directorio actual
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Agregar la ruta al PYTHONPATH
+sys.path.append(current_dir)
+
 from controller import ControladorCarrito
 
 
