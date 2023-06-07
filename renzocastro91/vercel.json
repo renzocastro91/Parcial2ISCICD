@@ -14,11 +14,6 @@
     ],
     "env": {
       "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
-    },
-    "functions": {
-      "webhook": {
-        "handler": "vercelF.handler"
-      }
     }
   }
   
