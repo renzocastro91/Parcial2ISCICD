@@ -15,7 +15,7 @@ class Carrito:
             if producto.nombre == nombre:
                 self.productos.remove(producto)
                 return producto
-        return None
+        return 0
     
     def obtener_productos(self):
         return self.productos
