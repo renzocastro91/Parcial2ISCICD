@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 
-from controlador import ControladorCarrito
+from controller import ControladorCarrito
 
 
 class TestControladorCarrito(unittest.TestCase):
