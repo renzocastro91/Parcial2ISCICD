@@ -27,7 +27,7 @@ jobs:
           pip install pytest   
       
       - name: Run tests
-        run: pytest
+        run: pytest -v
 
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
