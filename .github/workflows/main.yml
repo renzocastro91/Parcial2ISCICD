@@ -55,7 +55,6 @@ jobs:
         run: |
           vercel env add SLACK_WEBHOOK_URL $SLACK_WEBHOOK_URL --prod
 
-
       - name: Get deployment URL
         id: deployment
         run: |
