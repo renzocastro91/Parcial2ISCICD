@@ -9,8 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
-      
+    runs-on: ubuntu-20.04      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -18,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10.6
+          python-version: 3.X
       
       - name: Install dependencies
         run: |
@@ -50,12 +49,8 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
-
-      - name: Get deployment URL
-        id: deployment
-        run: |
-          DEPLOY_URL=$(vercel inspect --json | jq -r '.[0].url')
-          echo "::set-output name=url::$DEPLOY_URL"
+          cd renzocastro91
+          echo "0" | python3 main.py
 
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
@@ -64,8 +59,8 @@ jobs:
           status: ${{ job.status }}
           token: ${{ secrets.GITHUB_TOKEN }}
           notification_title: "{workflow} has {status_message}"
-          message_format: "{emoji} successful deployment in <{repo_url}|{repo}>\nDeployed URL: ${{ steps.deployment.outputs.url }}"
+          message_format: "{emoji} successful deployment"
           footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
           notify_when: "success"
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK2 }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK2 }}  
