@@ -54,6 +54,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          sonar.projectKey: renzocastro
+          sonar.organization: renzocastro91
       - name: Send Slack notification
         uses: ravsamhq/notify-slack-action@v2
         if: always()
