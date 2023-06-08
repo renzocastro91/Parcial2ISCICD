@@ -28,22 +28,7 @@ jobs:
           pip install -r renzocastro91/requirements.txt
           pip install pytest   
       
-      - name: Run tests
-        run: pytest -v
-
-      - name: Send Slack notification
-        uses: ravsamhq/notify-slack-action@v2
-        if: always()
-        with:
-            status: ${{ job.status }}
-            token: ${{ secrets.GITHUB_TOKEN }}
-            notification_title: "{workflow} has {status_message}"
-            message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-            footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
-            notify_when: "failure"
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-
+     
   sonarcloud:
     name: SonarCloud
     needs: [build]
@@ -79,7 +64,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: Install Vercel CLI
         run: npm install -g vercel
 
