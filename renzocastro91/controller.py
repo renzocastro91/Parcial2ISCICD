@@ -12,9 +12,9 @@ from view import VistaCarrito
 
 
 class ControladorCarrito:
-def __init__(self):
-self.carrito = Carrito()
-self.vista = VistaCarrito()
+    def __init__(self):
+        self.carrito = Carrito()
+        self.vista = VistaCarrito()
 
     def agregar_producto(self, nombre, precio):
         producto = Producto(nombre, precio)
@@ -31,7 +31,7 @@ self.vista = VistaCarrito()
 
     def obtener_lista_productos(self):
         return self.carrito.obtener_productos()
-    
-    def mostrar_productos(self):
+
+def mostrar_productos(self):
         productos = self.carrito.obtener_productos()
         self.vista.mostrar_productos(productos)
