@@ -84,8 +84,8 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
           cd renzocastro91
+          npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91          
           echo "0" | python3 main.py
 
       - name: Send Slack notification
