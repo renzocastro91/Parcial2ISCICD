@@ -77,6 +77,9 @@ jobs:
     needs: [sonarcloud]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Install Vercel CLI
         run: npm install -g vercel
 
@@ -84,7 +87,6 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          ls
           npx vercel --token $VERCEL_TOKEN --prod --confirm renzocastro91
           cd renzocastro91
           echo "0" | python3 main.py
