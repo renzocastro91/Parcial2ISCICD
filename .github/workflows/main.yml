@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04      
+    runs-on: ubuntu-latest     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -42,11 +42,9 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
   sonarcloud:
-    organization: renzocastro91
-    projectKey: renzocastro
     name: SonarCloud
     needs: [build]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -73,7 +71,7 @@ jobs:
   deploy:
     name: Deploy
     needs: [sonarcloud]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Install Vercel CLI
         run: npm install -g vercel
