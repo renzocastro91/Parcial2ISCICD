@@ -1,0 +1,24 @@
+name: Trello Automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trello-automation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Create Trello Card
+        env:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
+        run: |
+          card_name=$(git log -1 --pretty=format:"%s")
+          list_id=<parcial2cicd>
+          board_id=<83qS8aCb>
+          curl -X POST -H 'Content-type: application/json' -d '{"key": "'"$TRELLO_API_KEY"'", "token": "'"$TRELLO_API_TOKEN"'", "idList": "'"$list_id"'", "name": "'"$card_name"'"}' "https://api.trello.com/1/boards/$board_id/cards"
