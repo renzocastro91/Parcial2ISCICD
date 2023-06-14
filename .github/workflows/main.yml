@@ -55,7 +55,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK3 }}
   
   test:
-    name: UnitTest
+    name: AutomaticTests
     needs: [sonarcloud]
     runs-on: ubuntu-latest
     steps:
@@ -111,20 +111,3 @@ jobs:
           notify_when: "success"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK2 }}
-
-  trello-automation:
-    runs-on: ubuntu-latest
-            
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-                      
-      - name: Create Trello Card
-        env:
-          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
-          TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
-        run: |
-          name="Push de Repositorio"
-          list_id=3PCeRH7a
-          board_id=83qS8aCb
-          curl -X POST -H 'Content-type: application/json' -d '{"key": "'"$TRELLO_API_KEY"'", "token": "'"$TRELLO_API_TOKEN"'", "idList": "'"$list_id"'", "name": "'"$name"'"}' "https://api.trello.com/1/boards/$board_id/cards"

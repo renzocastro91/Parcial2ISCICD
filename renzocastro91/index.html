@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Deploy exitoso</title>
-  <style>
-    body {
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    
-    h1 {
-      color: #333;
-      margin-top: 50px;
-    }
-    
-    p {
-      color: #666;
-      font-size: 18px;
-      margin-top: 20px;
-    }
-    
-    .logo {
-      margin-top: 50px;
-      width: 500px;
-    }
-    
-    .footer {
-      margin-top: 50px;
-      color: #999;
-      font-size: 14px;
-    }
-    
-    #product-table {
-      margin: 0 auto;
-      font-size: 25px;
-    }
-  </style>
-  <script>
-    // Función para leer el archivo CSV y generar la tabla
-    function generateTable() {
-      fetch('data.csv')
-        .then(response => response.text())
-        .then(data => {
-          const rows = data.split('\n');
-          const table = document.getElementById('product-table');
-          rows.forEach(row => {
-            const cells = row.split(',');
-            const newRow = document.createElement('tr');
-            cells.forEach(cell => {
-              const newCell = document.createElement('td');
-              newCell.textContent = cell.trim();
-              newRow.appendChild(newCell);
-            });
-            table.appendChild(newRow);
-          });
-        });
-    }
-  </script>
-</head>
-<body onload="generateTable()">
-  <h1>Segundo Parcial Ingeniería de Software</h1>
-  <img class="logo" src="https://static.vecteezy.com/system/resources/previews/014/849/756/non_2x/software-engineer-illustration-concept-a-flat-illustration-isolated-on-white-background-vector.jpg" alt="Logo">
-  <h1>Lista de productos</h1>
-  <table id="product-table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-      </tr>
-    </thead>
-    <tbody>
+  <head>
+    <title>Deploy exitoso</title>
+    <style>
+      body {
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
       
-    </tbody>
-  </table>
-  <h1>Deploy exitoso</h1>
-  <p>¡Tu aplicación ha sido desplegada con éxito!</p>
-  <p>Version 1.1</p>
-  
-  
-  <br><br><br><br><br><br><br>
-  <p class="footer">© 2023 Derechos reservados</p>
-</body>
+      h1 {
+        color: #333;
+        margin-top: 50px;
+      }
+      
+      p {
+        color: #666;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      
+      .logo {
+        margin-top: 50px;
+        width: 500px;
+      }
+      
+      .footer {
+        margin-top: 50px;
+        color: #999;
+        font-size: 14px;
+      }
+      
+      #product-table {
+        margin: 0 auto;
+        font-size: 25px;
+      }
+    </style>
+    <script>
+      // Función para leer el archivo CSV y generar la tabla
+      function generateTable() {
+        fetch('data.csv')
+          .then(response => response.text())
+          .then(data => {
+            const rows = data.split('\n');
+            const table = document.getElementById('product-table');
+            rows.forEach(row => {
+              const cells = row.split(',');
+              const newRow = document.createElement('tr');
+              cells.forEach(cell => {
+                const newCell = document.createElement('td');
+                newCell.textContent = cell.trim();
+                newRow.appendChild(newCell);
+              });
+              table.appendChild(newRow);
+            });
+          });
+      }
+    </script>
+  </head>
+  <body onload="generateTable()">
+    <h1>Segundo Parcial Ingeniería de Software</h1>
+    <img class="logo" src="https://static.vecteezy.com/system/resources/previews/014/849/756/non_2x/software-engineer-illustration-concept-a-flat-illustration-isolated-on-white-background-vector.jpg" alt="Logo">
+    <h1>Lista de productos</h1>
+    <table id="product-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+    <h1>Deploy exitoso</h1>
+    <p>¡Tu aplicación ha sido desplegada con éxito!</p>
+    <p>Version 1.1</p>
+    
+    
+    <br><br><br><br><br><br><br>
+    <p class="footer">© 2023 Derechos reservados</p>
+  </body>
 </html>
