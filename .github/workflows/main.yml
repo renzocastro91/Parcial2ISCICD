@@ -124,6 +124,7 @@ jobs:
           TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
           TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
         run: |
-          list_id=<bBJfrler>
-          board_id=<83qS8aCb>
-          curl -X POST -H 'Content-type: application/json' -d '{"key": "'"$TRELLO_API_KEY"'", "token": "'"$TRELLO_API_TOKEN"'", "idList": "'"$list_id"'"}' "https://api.trello.com/1/boards/$board_id/cards"
+          name="Lista de tareas"
+          list_id=bBJfrler
+          board_id=83qS8aCb
+          curl -X POST -H 'Content-type: application/json' -d '{"key": "'"$TRELLO_API_KEY"'", "token": "'"$TRELLO_API_TOKEN"'", "idList": "'"$list_id"'", "name": "'"$name"'"}' "https://api.trello.com/1/boards/$board_id/cards"
