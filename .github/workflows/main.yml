@@ -49,10 +49,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           notification_title: "SonarCloud Analysis"
           message_format: |
-            :white_check_mark: *SonarCloud Analysis*: Passed for repository *{repository}*
+            :white_check_mark: *SonarCloud Analysis*: Passed for repository *{repo}*
             Branch: {branch}
-            Quality Gate Status: {quality_gate_status}
-          footer: "Linked Repo {repository_url} | {workflow_url}"
+            Quality Gate Status: ${{ env.SONAR_QUALITY_GATE_STATUS }}
+            SonarCloud Analysis Details: [SonarCloud](${{ env.SONAR_REPORT_URL }})
+          footer: "Linked Repo {repo_url} | {workflow_url}"
           notify_when: "success"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK3 }}
