@@ -31,6 +31,7 @@ jobs:
     name: SonarCloud
     needs: [build]
     runs-on: ubuntu-latest
+    if: needs.build.result  == 'success'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -45,15 +46,11 @@ jobs:
         uses: ravsamhq/notify-slack-action@v2
         if: always()
         with:
-          status: success
+          status: ${{ job.status }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          notification_title: "SonarCloud Analysis"
-          message_format: |
-            :white_check_mark: *SonarCloud Analysis*: Passed for repository *{repo}*
-            Branch: {branch}
-            Quality Gate Status: ${{ env.SONAR_QUALITY_GATE_STATUS }}
-            SonarCloud Analysis Details: [SonarCloud](${{ env.SONAR_REPORT_URL }})
-          footer: "Linked Repo {repo_url} | {workflow_url}"
+          notification_title: "{workflow} has {status_message}"
+          message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+          footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
           notify_when: "success"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK3 }}
