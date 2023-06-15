@@ -45,12 +45,15 @@ jobs:
         uses: ravsamhq/notify-slack-action@v2
         if: always()
         with:
-          status: ${{ job.status }}
+          status: success
           token: ${{ secrets.GITHUB_TOKEN }}
-          notification_title: "{workflow} has {status_message}"
-          message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-          footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
-          notify_when: "failure"
+          notification_title: "SonarCloud Analysis"
+          message_format: |
+            :white_check_mark: *SonarCloud Analysis*: Passed for repository *{repository}*
+            Branch: {branch}
+            Quality Gate Status: {quality_gate_status}
+          footer: "Linked Repo {repository_url} | {workflow_url}"
+          notify_when: "success"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK3 }}
   
