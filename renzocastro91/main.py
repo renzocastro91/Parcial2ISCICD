@@ -92,6 +92,10 @@ def main():
     precio=1459
     controlador.agregar_producto(nombre,precio)
 
+    nombre = "Cinto"
+    precio = 3000
+    controlador.agregar_producto(nombre,precio)
+
     guardar_datos(controlador)
     while True:
         mostrar_menu()
